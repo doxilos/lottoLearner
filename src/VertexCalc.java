@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 /**
  * Calculates the vertexes of points to other points
+ * @author Nurbaki Vural
  */
 public class VertexCalc {
 
