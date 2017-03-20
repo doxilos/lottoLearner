@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 /**
@@ -11,30 +9,45 @@ public class VertexCalc {
 
     /** Calculates vertexes of all points and returns points with their vertexes
      *
-     * @param coordinates Takes Coordinate object. See coordinate.java
-     * @return Returns Vertexes of point Array list. Each point has vertex list.
+     * @param points Takes Point object. See coordinate.java
+     * @return Returns Vertexes of points Array list. Each points has vertex list.
      */
-    VertexesOfPoint calculateAllVertexes(ArrayList<Coordinate> coordinates) {
-        //Size of coordinates
-        int size = coordinates.size();
-        //Wrapped points values in Atomic Reference because points.add method may produce Null Pointer Exc
-        AtomicReference<List<ArrayList<Float>>> points= new AtomicReference<>(null);
-        ArrayList<Float> pointVertexes = new ArrayList<>();
-        VertexesOfPoint vop;
+    VertexesOfAllPoints calculateAllVertexes(ArrayList<Point> points) {
+
+        //Temporary vertexList to create vop
+        ArrayList<Double> vertexList = new ArrayList<>();
+
+        //Size of points list
+        int size = points.size();
+
+        //Creating VOP
+        VertexesOfPoint vop = new VertexesOfPoint(vertexList,points.get(1));
+
+        //Creating VOAP
+        VertexesOfAllPoints voap = new VertexesOfAllPoints(vop,points);
 
         for (int i = 0; i < size; i++) {
-            float x = coordinates.get(i).X;
-            float y = coordinates.get(i).Y;
+            //Getting the nth point
+            double x = points.get(i).X;
+            double y = points.get(i).Y;
+            //Resetting b value
             int b = 0;
             for (int a = i + 1; a < size; a++) {
-                float temp = vertexLength(x, y, coordinates.get(a).X, coordinates.get(a).Y);
-                pointVertexes.add(b,temp);
-            }
 
-            points.get().add(i,pointVertexes);
+                //Calculating length to all other points
+                double temp = vertexLength(x, y, points.get(a).X, points.get(a).Y);
+
+                //Adds, a point's length to all other points. We will use this in dijkstra algorithm
+                vertexList.add(b,temp);
+                //Increment on b
+                b++;
+            }
+            //Adding vertex list to related point from main list
+            voap.vop.Point = points.get(i);
+            voap.vop.VertexList = vertexList;
         }
-        vop = new VertexesOfPoint(pointVertexes, points.get());
-        return vop;
+
+        return voap;
     }
 
 
@@ -46,8 +59,8 @@ public class VertexCalc {
      * @param y2 y end
      * @return Vertex Length
      */
-    private float vertexLength(float x1, float y1, float x2, float y2 ){
-        return (float) Math.sqrt(
+    private double vertexLength(double x1, double y1, double x2, double y2 ){
+        return Math.sqrt(
                 Math.abs(x2 - x1) + Math.abs(y2 - y1));
     }
 }

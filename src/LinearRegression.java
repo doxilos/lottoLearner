@@ -31,6 +31,7 @@ public class LinearRegression {
     private final double r2;
     private final double svar0, svar1;
 
+
     /**
      * Performs a linear regression on the data points {@code (y[i], x[i])}.
      *
