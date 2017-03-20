@@ -1,3 +1,7 @@
+/**
+ * Coordinate object
+ */
+
 public class Coordinate{
     float X;
     float Y;

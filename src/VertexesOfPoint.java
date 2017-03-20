@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Points and vertexes to all points
+ */
 public class VertexesOfPoint {
     List Point;
     ArrayList VertexList;
