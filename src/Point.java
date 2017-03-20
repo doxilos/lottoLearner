@@ -5,7 +5,7 @@
 public class Point{
     double X;
     double Y;
-    Point(float X, float Y){
+    Point(double X, double Y){
 
         this.X = X;
         this.Y = Y;
