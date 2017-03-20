@@ -24,6 +24,8 @@
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
+
+@SuppressWarnings("all")
 public class LinearRegression {
     private final double intercept, slope;
     private final double r2;
