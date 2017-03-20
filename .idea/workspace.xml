@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d806c540-2d2d-4f2e-8637-781f9e1cf5ef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LinearRegression.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -411,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490023432634</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Basic Linear Regression&#10;">
+      <created>1490023591545</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1490023591545</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -452,7 +458,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Descriptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Descriptions" />
+    <MESSAGE value="Added Basic Linear Regression&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Basic Linear Regression&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
