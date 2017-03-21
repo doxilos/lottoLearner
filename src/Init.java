@@ -1,4 +1,8 @@
 import java.util.Arrays;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
+
 
 public class Init {
     /**
@@ -16,8 +20,16 @@ public class Init {
     }
 
     public static void main (String Args[]){
-        final double[] XES = generateNumbers(1,54);
-        System.out.println(Arrays.toString(XES));
+        final double[] X54 = generateNumbers(1,54);
+
+
+        Graph graph = new SingleGraph("I can see dead pixels");
+        Viewer viewer = graph.display();
+        graph.addNode("A");
+        graph.addNode("B");
+        Node n = graph.getNode("A");
+        n.setAttribute("x","0");
+
     }
 
 
