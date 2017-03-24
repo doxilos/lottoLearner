@@ -24,7 +24,7 @@ public class Init {
     }
 
     public static void main (String Args[]){
-        final double[] X54 = generateNumbers(1,54);
+        //final double[] X54 = generateNumbers(1,54);
 
         //Generate lotto test
         int[] i = GenerateLotto.generateLotto(54,6);
