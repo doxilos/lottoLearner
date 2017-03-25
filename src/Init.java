@@ -1,14 +1,9 @@
 
-
 import java.util.Arrays;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.SingleGraph;
-import org.graphstream.ui.view.Viewer;
-
-import static java.lang.System.out;
 
 
 public class Init {
+
     /**
      * Generates a number array between given numbers
      * @param num1
@@ -23,20 +18,14 @@ public class Init {
         return nums;
     }
 
+    /** MAIN CLASS **
+     */
     public static void main (String Args[]){
         //final double[] X54 = generateNumbers(1,54);
 
         //Generate lotto test
         int[] i = GenerateLotto.generateLotto(54,6);
         System.out.println(Arrays.toString(i));
-
-        /*Graph graph = new SingleGraph("I can see dead pixels");
-        Viewer viewer = graph.display();
-        graph.addNode("A");
-        graph.addNode("B");
-        Node n = graph.getNode("A");
-        n.setAttribute("x","0");
-         */
 
     }
 
