@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Init {
@@ -25,7 +26,14 @@ public class Init {
 
         //Generate lotto test
         int[] i = GenerateLotto.generateLotto(54,6);
-        System.out.println(Arrays.toString(i));
+        //System.out.println(Arrays.toString(i));
+        //TotalRegression Test
+        double[] x = new double[]{1,1,1,2,2,2};
+        double[] y = new double[]{5,4,6,3,7,8};
+        LinearRegression linr = new LinearRegression(x,y);
+        System.out.println(linr.toString());
+        System.out.println(linr.predict(3));
+
 
     }
 
