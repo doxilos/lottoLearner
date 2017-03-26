@@ -1,8 +1,7 @@
 
 import java.util.Arrays;
 import java.util.List;
-
-
+import flanagan.analysis.Regression;
 public class Init {
 
     /**
@@ -30,11 +29,13 @@ public class Init {
         //TotalRegression Test
         double[] x = new double[]{1,1,1,2,2,2};
         double[] y = new double[]{5,4,6,3,7,8};
+        double[][] xy = new double[][]{x,y};
         LinearRegression linr = new LinearRegression(x,y);
         System.out.println(linr.toString());
         System.out.println(linr.predict(3));
-
-
+        Regression r = new Regression();
+        r.enterData(x,y);
+        r.linearPlot();
     }
 
 

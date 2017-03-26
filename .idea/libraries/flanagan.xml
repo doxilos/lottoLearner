@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="flanagan">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/flanagan.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/flanagan.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
