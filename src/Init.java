@@ -1,45 +1,60 @@
 
+import com.opencsv.CSVReader;
 import javax.swing.*;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Init extends JFrame {
 
-    /**
-     * Generates a number array between given numbers
-     * @param num1
-     * @param num2
-     * @return
-     */
-    public static double[] generateNumbers(int num1,int num2){
-        double[] nums=new double[num2];
-        for(int i=num1; i<=num2;i++){
-            nums[i-1]=i;
-        }
-        return nums;
-    }
-
-
     /** MAIN CLASS **
      */
     public static void main (String Args[]){
-        //final double[] X54 = generateNumbers(1,54);
 
-        //Generate lotto test
-        int[] i = GenerateLotto.generateLotto(54,6);
-        //System.out.println(Arrays.toString(i));
-        //TotalRegression Test
-        double[] x = new double[]{1,1,1,2,2,2};
-        double[] y = new double[]{5,4,6,3,7,8};
-        double[][] xy = new double[][]{x,y};
-        LinearRegression linr = new LinearRegression(x,y);
-        System.out.println(linr.toString());
-        System.out.println(linr.predict(3));
+        double[] lottoN = new double[491];
+        double[] lottoS = new double[491*6];
+
+        try {
+            CSVReader reader = new CSVReader(new FileReader("lotodb.csv"),'\t');
+            String[] nextLine;
+            int redun = 0;
+            int n = 0;
+            while ((nextLine = reader.readNext()) != null) {
+                // nextLine[] is an array of values from the line
+                lottoN[redun] = new Double(nextLine[0]);
+                int i = 0;
+
+                for(;i<6;i++){
+                    lottoS[n]=Double.parseDouble(nextLine[i+1]);
+                    n++;
+                }
+
+                redun++;
+            }
+            System.out.println(Arrays.toString(lottoS));
+            System.out.println(Arrays.toString(lottoN));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
+        double[] X= new double[491*6];
+        for (int n=0;n<X.length;n++) {
+            X[n]=lottoN[n/6];
+        }
+        System.out.println(Arrays.toString(X));
+
+        double[] Y = lottoS;
+        System.out.println(X.length+" "+Y.length);
 
 
+        //Parsing
 
-
+        LinearRegression LR= new LinearRegression(X,Y);
+        System.out.println(LR.toString()+" /prediction> "+LR.predict(493));
     }
 
 
