@@ -1,8 +1,8 @@
 
-import java.util.Arrays;
-import java.util.List;
-import flanagan.analysis.Regression;
-public class Init {
+import javax.swing.*;
+
+
+public class Init extends JFrame {
 
     /**
      * Generates a number array between given numbers
@@ -17,6 +17,7 @@ public class Init {
         }
         return nums;
     }
+
 
     /** MAIN CLASS **
      */
@@ -33,9 +34,12 @@ public class Init {
         LinearRegression linr = new LinearRegression(x,y);
         System.out.println(linr.toString());
         System.out.println(linr.predict(3));
-        Regression r = new Regression();
-        r.enterData(x,y);
-        r.linearPlot();
+
+
+
+
+
+
     }
 
 
