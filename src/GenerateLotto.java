@@ -15,7 +15,7 @@ public class GenerateLotto {
      * @param RaffleNum How many balls will be chosen?
      * @return Chosen Numbers
      */
-    public static int[] generateLotto(int TotalNumber, int RaffleNum){
+    public static int[] generateLotto(int TotalNumber, int RaffleNum, double prediction){
 
         //Random object
         Random random = new Random();
@@ -27,6 +27,7 @@ public class GenerateLotto {
         for(int i = 0; i<chosen.length;i++){
             chosen[i] = random.nextInt(TotalNumber+1);
         }
+
         return chosen;
     }
 

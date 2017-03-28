@@ -55,6 +55,10 @@ public class Init extends JFrame {
 
         LinearRegression LR= new LinearRegression(X,Y);
         System.out.println(LR.toString()+" /prediction> "+LR.predict(493));
+
+
+
+
     }
 
 
