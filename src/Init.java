@@ -5,16 +5,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Init extends JFrame {
+
+
+    public static final int MAX = 493;
 
     /** MAIN CLASS **
      */
     public static void main (String Args[]){
 
-        double[] lottoN = new double[491];
-        double[] lottoS = new double[491*6];
+        double[] lottoN = new double[MAX];
+        double[] lottoS = new double[MAX*6];
 
         try {
             CSVReader reader = new CSVReader(new FileReader("lotodb.csv"),'\t');
@@ -41,7 +45,7 @@ public class Init extends JFrame {
         }
 
 
-        double[] X= new double[491*6];
+        double[] X= new double[MAX*6];
         for (int n=0;n<X.length;n++) {
             X[n]=lottoN[n/6];
         }
@@ -49,18 +53,12 @@ public class Init extends JFrame {
 
         double[] Y = lottoS;
         System.out.println(X.length+" "+Y.length);
-
-
-        //Parsing
-
-        LinearRegression LR= new LinearRegression(X,Y);
-        System.out.println(LR.toString()+" /prediction> "+LR.predict(493));
-
-        //Reversing
-
-        LinearRegression LR2 = new LinearRegression(Y,X);
-        System.out.println(LR2.toString()+" /prediction> "+LR2.predict(493));
-
+        LinearRegression lr = new LinearRegression(Y,X);
+        System.out.println(lr.predict(MAX +1));
+        System.out.println();
+        TotalPrediction tp = new TotalPrediction();
+        tp.totalPrediction();
+        System.out.println();
 
 
     }
